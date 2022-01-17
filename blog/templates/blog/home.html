@@ -7,10 +7,11 @@
        <title>blog-home</title>
 </head>
 <body>
+       <h1> welcome {{ user.username}}</h1>
        <h2>this is home page!!!!!!!!!!</h2>
        <hr>
        {% for blog in blogs %}
-              <h2><a href="{% url 'blog-detail' blog.id %}"> {{blog.heading}} </a></h2>
+              <h2><a href="{% url 'blog-detail' blog.id %}"> {{blog.heading}}  ---- {{blog.id}}</a></h2>
               <h4>{{blog.msg}}</h4>
               <p>{{blog.author}} - {{blog.date_posted}}</p>
               <hr>

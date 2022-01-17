@@ -7,6 +7,13 @@ from django.views.generic import (
        DeleteView
 )
 
+
+# from rest_framework.authtoken.models import Token
+
+# token = Token.objects.create(user=...)
+# print(token.key)
+
+
 # def home(request):
 #        return render(request, 'blog/home.html',{"blogs":Blog.objects.all()})
 
@@ -14,7 +21,7 @@ class BlogHome(ListView):
        model = Blog
        template_name = 'blog/home.html'
        context_object_name = 'blogs'
-       ordering = ['-date_posted']
+       ordering = ['-date_posted'] 
        
 class BlogDetail(DetailView):
        model = Blog

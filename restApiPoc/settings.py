@@ -31,7 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+       #new apps
        'blog.apps.BlogConfig',
+       'users.apps.UsersConfig',
+       'rest_framework.authtoken',
+       
        'django.contrib.admin',
        'django.contrib.auth',
        'django.contrib.contenttypes',
@@ -81,6 +85,12 @@ DATABASES = {
     }
 }
 
+# Authentication using drf..
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+               'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
