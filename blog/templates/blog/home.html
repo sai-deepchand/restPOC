@@ -13,7 +13,9 @@
        {% for blog in blogs %}
               <h2><a href="{% url 'blog-detail' blog.id %}"> {{blog.heading}}  ---- {{blog.id}}</a></h2>
               <h4>{{blog.msg}}</h4>
-              <p>{{blog.author}} - {{blog.date_posted}}</p>
+              <p> date updated - {{blog.date_updated}}</p>
+              <p>date posted- {{blog.date_posted}}</p>
+              <p>author - {{blog.author}} </p>
               <hr>
        {% endfor %}
 </body>

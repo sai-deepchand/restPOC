@@ -1,22 +1,22 @@
-import imp
-from re import template
 from blog.models import Blog
-# from django.contrib.auth.models import User
 from blog.api.serializers import BlogSerializer
 from rest_framework import generics
-from rest_framework.response import Response
-# from rest_framework.authtoken.models import Token
-
-# token = Token.objects.create(user=)
-# print(token.key)
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from .permissions import IsOwnerOrReadOnly
 
 class BlogList(generics.ListCreateAPIView):
        queryset = Blog.objects.all()
        serializer_class = BlogSerializer
-       # context_object_name = 'blogs'
-       template_name = 'api.html'
+       authentication_classes = [TokenAuthentication]
+       permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
-
+       def perform_create(self, serializer):
+              serializer.save(author=self.request.user)
+       
 class BlogDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Blog.objects.all()
-    serializer_class = BlogSerializer
+       queryset = Blog.objects.all()
+       serializer_class = BlogSerializer
+       authentication_classes = [TokenAuthentication]
+       permission_classes = [IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly]              
+                   

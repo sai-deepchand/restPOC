@@ -55,7 +55,7 @@ class BlogDelete(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
        template_name = 'blog/delete.html'
        context_object_name = 'blog'
 
-       success_url = '/blog'
+       success_url = '/'
 
        def test_func(self) :
               blog = self.get_object()

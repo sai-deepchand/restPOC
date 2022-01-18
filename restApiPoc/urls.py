@@ -3,7 +3,7 @@ from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path, include
 from users.views import register_request,login_request,logout_request
-
+from rest_framework.authtoken import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -12,4 +12,5 @@ urlpatterns = [
     path('register/',register_request,name='register'),
      path("login/", login_request, name="login"),
      path("logout/", logout_request, name= "logout"),
+      path('api-token/', views.obtain_auth_token),
 ]
