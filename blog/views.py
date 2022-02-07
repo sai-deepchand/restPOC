@@ -1,21 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render
-from blog.models import Blog
 from django.views.generic import (
        ListView, DetailView, 
        CreateView, UpdateView,
        DeleteView
 )
 
-
-# from rest_framework.authtoken.models import Token
-
-# token = Token.objects.create(user=...)
-# print(token.key)
-
-
-# def home(request):
-#        return render(request, 'blog/home.html',{"blogs":Blog.objects.all()})
+from blog.models import Blog
 
 class BlogHome(ListView):
        model = Blog

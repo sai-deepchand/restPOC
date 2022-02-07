@@ -1,9 +1,10 @@
-from blog.models import Blog
 from blog.api.serializers import BlogSerializer
 from rest_framework import generics
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .permissions import IsOwnerOrReadOnly
+
+from blog.models import Blog
 
 class BlogList(generics.ListCreateAPIView):
        queryset = Blog.objects.all()
