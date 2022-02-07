@@ -1,5 +1,6 @@
 from urllib import request
 from rest_framework import serializers
+
 from blog.models import Blog
 
 class BlogSerializer(serializers.ModelSerializer):
