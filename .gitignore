@@ -3,6 +3,7 @@ restApiPoc/__pycache__
 blog/__pycache__
 restApiPoc/settings.py      
 db.sqlite3
+git status
 
 # Django #
 *.log
